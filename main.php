@@ -2,63 +2,56 @@
 
 $array = ["A","E", "I", "O", "U"];
 
-function lista(){
-    global $array;
+function lista($array){
     print_r ($array);
 }
 
-function insereFinal($valor){
-    global $array;
-    lista();
+function insereFinal($array, $valor){
+    lista($array);
     array_push($array, $valor);
     echo "Valor inserido com sucesso: ".$valor."\n";
-    lista();
+    lista($array);
 }
 
-function insereInicio($valor){
-    global $array;
-    lista();
+function insereInicio($array, $valor){
+    lista($array);
     array_unshift($array, $valor);
     echo "Valor inserido com sucesso: ".$valor."\n";
-    lista();
+    lista($array);
 }
 
-function inserePosicao($posicao, $valor){
+function inserePosicao($array, $posicao, $valor){
     global $array;
-    lista();
+    lista($array);
     $array[$posicao] = $valor;
-    lista();
+    lista($array);
 }
 
-function removeUltimo(){
-    global $array;
-    lista();
+function removeUltimo($array){
+    lista($array);
     $removido = array_pop($array);
     echo "Removido = ".$removido."\n";
-    lista();
+    lista($array);
 }
 
-function removePrimeiro(){
-    global $array;
-    lista();
+function removePrimeiro($array){
+    lista($array);
     $removido = array_shift($array);
     echo "Removido = ".$removido."\n";
-    lista();
+    lista($array);
 }
 
-function removePosicao($posicao){
-    global $array;
-    lista();
+function removePosicao($array, $posicao){
+    lista($array);
     unset($array[$posicao]);
     echo "Removida Posição = ".$posicao."\n";
     #Reindexa array
     #$array = array_values($array);
-    lista();
+    lista($array);
 }
 
-function removeValor($valor){
-    global $array;
-    lista();
+function removeValor($array, $valor){
+    lista($array);
     $key = array_search($valor, $array);
     if($key!==false){
         unset($array[$key]);
@@ -66,9 +59,17 @@ function removeValor($valor){
     }
     #Reindexa array
     #$array = array_values($array);
-    lista();
+    lista($array);
 }
 
-removeValor("I");
+function reindexa($array){
+    #Reindexa array
+    lista($array);
+    $array = array_values($array);
+    lista($array);
+}
+
+removeValor($array, "I");
+
 
 ?>
