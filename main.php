@@ -21,9 +21,9 @@ function insereFinal($array, $valor){
 }
 
 function inserePosicao($array, $posicao, $valor){
-    global $array;
     lista($array);
     $array[$posicao] = $valor;
+    echo "Inserido Valor: ".$valor."\n Na posição: ".$posicao."\n";
     lista($array);
 }
 
@@ -62,7 +62,7 @@ function removeValor($array, $valor){
     lista($array);
 }
 
-removeValor($array, "I");
+inserePosicao($array, 2, "X");
 
 
 ?>
